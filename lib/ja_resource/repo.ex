@@ -25,7 +25,7 @@ defmodule JaResource.Repo do
   @doc false
   def default_repo do
     quote do
-      if Application.get_env(:ja_resource, :repo) do
+      if Application.compile_env(:ja_resource, :repo) do
         def repo, do: Application.get_env(:ja_resource, :repo)
         defoverridable [repo: 0]
       end
